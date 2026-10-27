@@ -1,0 +1,55 @@
+/* Input: ABC  
+Output: 14  
+Explanation:
+ Step 1: Pair A and C.
+  Difference = |1-3|=2. 
+  Since 2 is even, transformed value = 2/2=1.
+  
+  Step 2: Process the middle character B. 
+  Alphabet position = 2. 
+  Word length = 3. 
+  Middle value = 2 X 3=6. 
+  
+  Step 3: Calculate the sum. 
+  1+6=7 
+  
+  Step 4: Apply the final condition. 
+  Since 7 is not divisible by 3, the final word code is 7 X 2=14. */
+public class q10intelligentexamcode {
+    public static void main(String[] args) {
+        
+        String s = "ABC";
+        int sum = 0;
+        int n = s.length();
+
+        for (int i = 0; i < n / 2; i++) {
+            int a = s.charAt(i) - 'A' + 1;
+            int b = s.charAt(n - 1 - i) - 'A' + 1;
+
+            int diff = Math.abs(a - b);
+
+            if (diff % 2 == 0) {
+                sum += diff / 2;
+            } else {
+                sum += diff * 2;
+            }
+        }
+
+        if (n % 2 != 0) {
+            int middle = s.charAt(n / 2) - 'A' + 1;
+            sum += middle * n;
+        }
+
+        int result;
+
+        if (sum % n == 0) {
+            result = sum / n;
+        } else {
+            result = sum * 2;
+        }
+
+        System.out.println(result);
+    }
+}
+
+
