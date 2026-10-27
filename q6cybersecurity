@@ -1,0 +1,28 @@
+/*Input: CAB  
+Output: 21  
+Explanation:  C–A: |3-1|=2 
+A–B: |1-2|=1 
+The word code is 21*/
+
+import java.util.Scanner;
+
+public class q6cybersecurity {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter string:");
+        String s = sc.nextLine();
+
+        String result="";
+        for(int i=0; i<s.length()-1; i++){
+            char ch1 = s.charAt(i);
+            char ch2 = s.charAt(i+1);
+
+            int a = ch1-'A'+1;
+            int b = ch2-'A'+1; 
+
+            int difference = Math.abs(a-b);  
+            result += difference;          
+        }
+        System.out.println(result);
+    }
+}
