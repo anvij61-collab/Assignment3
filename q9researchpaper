@@ -1,0 +1,31 @@
+/*Input: ABA 
+Output: 4 
+Explanation: 
+Sum of alphabet positions: 1+2+1=4. 
+Distinct characters: 2. 
+Square of dis nct count: 2^2=4. 
+Absolute difference: |4-4|=0. 
+Since the result is zero, use the sum, which is 4.  */
+import java.util.*;
+public class q9researchpaper {
+    public static void main(String[] args) {
+        String s = "ABA";
+        String result = "";
+        int sum =0;
+        HashSet<Character> set = new HashSet<>();
+        for(int i=0; i<s.length() ;i++){
+            sum += s.charAt(i) -'A' +1;
+            set.add(s.charAt(i));
+        }
+        int distinct = set.size();
+        int square = distinct*distinct;
+
+        int difference = Math.abs(sum - square);
+        if(difference ==0){
+            result += sum;
+        } else{
+            result += difference;
+        }
+        System.out.println(result);
+    }
+}
