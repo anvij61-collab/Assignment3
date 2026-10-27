@@ -1,0 +1,30 @@
+/* Input: ABC  Output: 66  
+Explanation:
+The word length is 3. 
+Pair A–C: difference 2, multiplied by 3 gives 6. 
+Middle B: posi on 2, multiplied by 3 gives 6. 
+Concatenate 6 and 6. */
+public class q8smartlogistics {
+
+    public static void main(String[] args) {
+        String s= "ABC";
+        String result ="";
+        for(int i=0; i<s.length()/2; i++){
+            char ch1 = s.charAt(i);
+            char ch2 = s.charAt(s.length()-i-1);
+
+            int a = ch1-'A'+1;
+            int b = ch2 -'A'+1;
+
+            int difference = Math.abs(a-b);
+            int code = difference* s.length();
+            result += code;
+        }
+        if(s.length()%2 != 0){
+            int middle = s.charAt(s.length()/2) -'A' +1;
+            int code1 = middle*s.length();
+            result += code1;
+        }
+        System.out.println(result);
+    }
+}
