@@ -1,0 +1,59 @@
+/*imput = ABA 
+a-a =0 so if 0 then we will do a+a =2
+b=2 2*3 =6
+final =26
+
+abc = c-a = 2
+b=2 2*3 =6
+ans =26*/
+
+
+import java.util.*;
+
+public class q2secureaccess {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine().toUpperCase();
+
+        String[] words = s.split(" ");
+        String finalresult = "";
+
+        for (int w = 0; w < words.length; w++) {
+
+            String word = words[w];
+            String result = "";
+
+            for (int i = 0; i < word.length() / 2; i++) {
+
+                char ch1 = word.charAt(i);
+                char ch2 = word.charAt(word.length() - 1 - i);
+
+                int a = ch1 - 'A' + 1;
+                int b = ch2 - 'A' + 1;
+
+                int difference = Math.abs(a - b);
+
+                if (difference == 0) {
+                    difference = a + b;
+                }
+
+                result += difference;
+            }
+
+            if (word.length() % 2 != 0) {
+
+                char middle = word.charAt(word.length() / 2);
+                int pos = middle - 'A' + 1;
+
+                int middleValue = pos * word.length();
+
+                result += middleValue;
+            }
+
+            finalresult += result;
+        }
+
+        System.out.println(finalresult);
+    }
+}
