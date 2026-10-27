@@ -1,0 +1,42 @@
+/*Example Input: ABC  
+Output: 42  
+Explanation: Pair A–C: 1+3=4. 
+Middle character B: posi on 2. 
+Concatenate 4 and 2. */
+import java.util.*;
+
+public class q5Studentperformancecode {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter string");
+        String s = sc.nextLine();
+
+        String[] words = s.split(" ");
+        String finalresult="";
+
+        for (int w = 0; w < words.length; w++) {
+
+            String word = words[w];
+            String result = "";
+
+            for (int i = 0; i < word.length() / 2; i++) {
+
+                char ch1 = word.charAt(i);
+                char ch2 = word.charAt(word.length() - 1 - i);
+
+                int a = ch1-'A'+1 , b = ch2-'A'+1;
+
+                int sum = a+b;
+                result+= sum;
+            }
+
+            if(word.length()%2 !=0){
+                char middle = word.charAt(word.length() / 2);
+                int pos = middle-'A' +1;
+                result += pos;
+            }
+            finalresult += result;
+        }
+        System.out.println(finalresult);
+    }
+}
