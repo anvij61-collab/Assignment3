@@ -1,0 +1,41 @@
+public class q1smarttext {
+    public static void main(String[] args) {
+
+        String a = "CAT DOG";
+        a = a.toUpperCase();
+
+        String[] words = a.split(" ");
+        String finalresult = "";
+
+        for (int i = 0; i < words.length; i++) {
+
+            String word = words[i];
+            String result = "";
+
+            for (int j = 0; j < word.length() / 2; j++) {
+
+                char ch1 = word.charAt(j);
+                char ch2 = word.charAt(word.length() - 1 - j);
+
+                int pos1 = ch1 - 'A' + 1;
+                int pos2 = ch2 - 'A' + 1;
+
+                int diff = Math.abs(pos1 - pos2);
+
+                result += diff;
+            }
+
+            if (word.length() % 2 != 0) {
+
+                char middle = word.charAt(word.length() / 2);
+                int pos = middle - 'A' + 1;
+
+                result += pos;
+            }
+
+            finalresult += result;
+        }
+
+        System.out.println(finalresult);
+    }
+}
